@@ -17,3 +17,9 @@ console.log(config);
 
 var home_page = path.join(program.input, 'index.md');
 console.log(home_page);
+
+var mdc = require('markdown-core/markdown-core-node');
+
+var result = mdc.render(fs.readFileSync(home_page, 'utf8'));
+
+console.log(result);
