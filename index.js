@@ -29,6 +29,11 @@ var home_page = path.join(program.input, 'index.md');
 var mdc = require('markdown-core/markdown-core-node');
 var result = mdc.render(fs.readFileSync(home_page, 'utf8'));
 console.log(result);
-result = mustache.render(layout, { content: result, title: config.name, brand: config.name });
+result = mustache.render(layout, {
+    content: result,
+    title: config.name,
+    brand: config.name,
+    navbar: '<li><a href="#">Link 1</a></li><li><a href="#">Link 2</a></li>'
+});
 console.log(result);
 fs.writeFileSync(path.join(program.output, 'index.html'), result);
