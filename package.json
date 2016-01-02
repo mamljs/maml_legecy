@@ -12,6 +12,8 @@
   "dependencies": {
     "commander": "^2.9.0",
     "js-yaml": "^3.4.6",
-    "markdown-core": "git+https://github.com/tylingsoft/markdown-core.git"
+    "markdown-core": "git+https://github.com/tylingsoft/markdown-core.git",
+    "mustache": "^2.2.1",
+    "ncp": "^2.0.0"
   }
 }
