@@ -1,0 +1,8 @@
+name: website.md
+pages:
+    - 
+        link: /
+        markdown: index.md
+    -
+        link: /blog.html
+        markdown: blog.md
