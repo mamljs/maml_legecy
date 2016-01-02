@@ -31,7 +31,7 @@ var result = mdc.render(fs.readFileSync(home_page, 'utf8'));
 console.log(result);
 result = mustache.render(layout, {
     content: result,
-    title: config.name,
+    title: config.title + config.title_suffix,
     brand: config.name,
     navbar: '<li><a href="#">Link 1</a></li><li><a href="#">Link 2</a></li>'
 });
