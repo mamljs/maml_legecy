@@ -17,7 +17,7 @@ ncp('node_modules/markdown-core/dist', path.join(program.output, 'dist'), functi
 });
 
 
-var config_file = path.join(program.input, 'config.yaml');
+var config_file = path.join(program.input, 'index.yaml');
 var config = yaml.safeLoad(fs.readFileSync(config_file, 'utf8'));
 console.log(config);
 
