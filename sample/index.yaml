@@ -1,6 +1,6 @@
-name: website.md
+brand: website.md
 title: Welcome
 title_suffix: " | Sample Website for website.md"
 pages:
-    -
-        markdown: blog.md
+    - download
+    - blog
