@@ -6,6 +6,7 @@ var mustache = require('mustache');
 var ncp = require('ncp').ncp;
 var mdc = require('markdown-core/markdown-core-node');
 var mkdirp = require("mkdirp");
+// var _ = require('underscore');
 
 
 // read and parse command line args
@@ -45,7 +46,7 @@ function generate_home_page() {
         title: config.title + config.title_suffix,
         brand: config.name,
         navbar: config.menu.map(function(link) {
-                return '<li><a href="/' + link + '">' + link + '</a></li>';
+                return '<li><a href="/' + link + '/">' + link + '</a></li>';
             }).join('')
     });
     write_file('index.html', html);
@@ -57,7 +58,22 @@ function generate_home_page() {
 
 
 function generate_level_one_page(link) {
-    write_file(link + '/index.html', 'hello world');
+    var config = yaml.safeLoad(read_file('index.yaml'));
+    var markdown = read_file(link + '/index.md');
+    var html = mdc.render(markdown);
+    var html = mustache.render(layout, {
+        content: html,
+        title: link + config.title_suffix,
+        brand: config.name,
+        navbar: config.menu.map(function(_link) {
+                if(link == _link) {
+                    return '<li class="active"><a href="/' + _link + '/">' + _link + '</a></li>';
+                } else {
+                    return '<li><a href="/' + _link + '/">' + _link + '</a></li>';
+                }
+            }).join('')
+    });
+    write_file(link + '/index.html', html);
 }
 
 generate_home_page();
