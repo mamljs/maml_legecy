@@ -5,6 +5,7 @@ var yaml = require('js-yaml');
 var mustache = require('mustache');
 var ncp = require('ncp').ncp;
 var mdc = require('markdown-core/markdown-core-node');
+var mkdirp = require("mkdirp");
 
 
 // read and parse command line args
@@ -29,7 +30,9 @@ var layout = read_file('templates/layout.html');
 
 function write_file(relative_path, content) {
     var absolute_path = path.join(program.output, relative_path);
-    fs.writeFileSync(absolute_path, content);
+    mkdirp(path.dirname(absolute_path), function (err) {
+        fs.writeFileSync(absolute_path, content);
+    });
 }
 
 
@@ -45,8 +48,16 @@ function generate_home_page() {
                 return '<li><a href="/' + link + '">' + link + '</a></li>';
             }).join('')
     });
-    console.log(html);
     write_file('index.html', html);
+
+    config.pages.forEach(function(link) {
+        generate_level_one_page(link);
+    });
+}
+
+
+function generate_level_one_page(link) {
+    write_file(link + '/index.html', 'hello world');
 }
 
 generate_home_page();
