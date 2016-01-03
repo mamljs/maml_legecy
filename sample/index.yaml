@@ -1,6 +1,4 @@
 name: website.md
 title: Welcome
 title_suffix: " | Sample Website for website.md"
-pages:
-    - download
-    - blog
+menu: [ download, blog ]

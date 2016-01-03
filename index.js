@@ -44,13 +44,13 @@ function generate_home_page() {
         content: html,
         title: config.title + config.title_suffix,
         brand: config.name,
-        navbar: config.pages.map(function(link) {
+        navbar: config.menu.map(function(link) {
                 return '<li><a href="/' + link + '">' + link + '</a></li>';
             }).join('')
     });
     write_file('index.html', html);
 
-    config.pages.forEach(function(link) {
+    config.menu.forEach(function(link) {
         generate_level_one_page(link);
     });
 }
