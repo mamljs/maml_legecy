@@ -12,6 +12,7 @@
 1. There is n special directories:
     - `templates/` contains page templates.
        - templates are based on [mustache](https://github.com/janl/mustache.js).
+1. `name` and `title`. `name` is required, it's used as page link name. `title` is optional, it's used as page title.  If `title` is missing, then by default it is the same as `name`.
 
 
 ## usage
@@ -24,3 +25,8 @@ Compile: `node index.js -i sample -o output`
 ## sample website
 
 **This** website
+
+
+## 实现思路
+
+1. 遍历整个树形文件夹结构，形成一个大的数据结构。后续的操作都基于这个大的数据结构进行，不再读取文件。

@@ -40,8 +40,10 @@ function generate_home_page() {
     html = mustache.render(layout, {
         content: html,
         title: config.title + config.title_suffix,
-        brand: config.brand,
-        navbar: '<li><a href="#">Link 1</a></li><li><a href="#">Link 2</a></li>'
+        brand: config.name,
+        navbar: config.pages.map(function(link) {
+                return '<li><a href="/' + link + '">' + link + '</a></li>';
+            }).join('')
     });
     console.log(html);
     write_file('index.html', html);
