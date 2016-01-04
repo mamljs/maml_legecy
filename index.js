@@ -1,19 +1,18 @@
 var yaml = require('js-yaml');
 var mustache = require('mustache');
 var mdc = require('markdown-core/markdown-core-node');
-var config = require('./config');
+var configuration = require('./configuration');
 var file = require('./file');
-// var _ = require('underscore');
-
-
-file.reset();
 
 
 var layout = file.read('templates/layout.html');
 
 
+file.reset();
+
+
 function generate_home_page() {
-    var config = yaml.safeLoad(file.read('index.yaml'));
+    var config = configuration.get('/');
     var markdown = file.read('index.md');
     var html = mdc.render(markdown);
     html = mustache.render(layout, {
@@ -26,9 +25,7 @@ function generate_home_page() {
     });
     file.write('index.html', html);
 
-    config.menu.forEach(function(link) {
-        generate_level_one_page(link);
-    });
+    config.menu.forEach(link =>  generate_level_one_page(link));
 }
 
 
@@ -52,4 +49,3 @@ function generate_level_one_page(link) {
 }
 
 generate_home_page();
-config.get('test config');
