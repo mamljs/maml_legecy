@@ -42,4 +42,13 @@ Compile: `node index.js -i sample -o output`
 
 ## todo
 
-1. 重构代码，根据不同的用途，将代码分散到不同的功能模块（module）中。
+1. try Typyscript
+    1. before that, use as much ES6 as possible
+
+
+## 约定俗成
+
+1. 相对url前后都包含‘／’，比如 '/download/', '/blog/', 主页的话是 '/'。
+    1. 这些写法是错误的: 'download' '/download', 'blog/', '//'
+1. 所有的页面都对应文件夹，而不是 html 文件, 比如 '/download/'
+    1. 这些写法是错误的：'download.html'， ‘／download.htm’

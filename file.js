@@ -20,14 +20,21 @@ function reset() {
 }
 
 
-function read(relative_path) {
-    var absolute_path = path.join(program.input, relative_path);
+function read() {
+    var absolute_path = program.input;
+    for(var i = 0; i < arguments.length; i++) {
+        absolute_path = path.join(absolute_path, arguments[i]);
+    }
     return fs.readFileSync(absolute_path, 'utf8');
 }
 
 
-function write(relative_path, content) {
-    var absolute_path = path.join(program.output, relative_path);
+function write() {
+    var content = arguments[arguments.length - 1];
+    var absolute_path = program.output;
+    for(var i = 0; i < arguments.length - 1; i++) {
+        absolute_path = path.join(absolute_path, arguments[i]);
+    }
     mkdirp(path.dirname(absolute_path), function (err) {
         fs.writeFileSync(absolute_path, content);
     });

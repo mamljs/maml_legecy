@@ -1,4 +1,4 @@
-name: website.md
+brand: website.md
 title: Welcome
 title_suffix: " | Sample Website for website.md"
-menu: [ download, blog ]
+menu: [ /download/, /blog/ ]
