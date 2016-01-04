@@ -1,7 +1,8 @@
-var config = {};
-
-config.get = function(path) {
+function get(path) {
     console.log(path);
 };
 
-module.exports = config;
+
+module.exports = {
+    get: get
+};
