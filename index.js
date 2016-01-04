@@ -1,24 +1,12 @@
-var program = require('commander');
-var path = require('path');
-var fs = require('fs');
 var yaml = require('js-yaml');
 var mustache = require('mustache');
-var ncp = require('ncp').ncp;
 var mdc = require('markdown-core/markdown-core-node');
 var config = require('./config');
 var file = require('./file');
 // var _ = require('underscore');
 
 
-// read and parse command line args
-program.version('0.0.1')
-    .option('-i, --input [path]', 'Path to the input directory')
-    .option('-o, --output [path]', 'Path to the output directory')
-    .parse(process.argv);
-
-
 file.reset();
-
 
 
 var layout = file.read('templates/layout.html');

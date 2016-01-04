@@ -15,7 +15,6 @@
     "markdown-core": "git+https://github.com/tylingsoft/markdown-core.git",
     "mkdirp": "^0.5.1",
     "mustache": "^2.2.1",
-    "ncp": "^2.0.0",
     "underscore": "^1.8.3"
   }
 }
