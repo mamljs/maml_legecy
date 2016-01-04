@@ -37,6 +37,7 @@ Compile: `node index.js -i sample -o output`
 1. 只要有 `index.md` 和 `index.yaml` 就要执行编译动作。 但是这个页面不一定会出现在 menu 列表中。
 1. underscore `_.assign(dst, source)` 可以轻易实现配置的继承
     - `console.log(_.assign({a: 1, c: [1,2,3]}, {b: 2, c: [2,3,4]}));`
+1. 配置文件还要支持json格式。 貌似yaml是json的超集？ 所以parse的时候全部当作yaml就可以了。
 
 
 ## todo

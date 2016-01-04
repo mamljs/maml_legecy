@@ -6,6 +6,7 @@ var mustache = require('mustache');
 var ncp = require('ncp').ncp;
 var mdc = require('markdown-core/markdown-core-node');
 var mkdirp = require("mkdirp");
+var config = require('./config');
 // var _ = require('underscore');
 
 
@@ -77,3 +78,4 @@ function generate_level_one_page(link) {
 }
 
 generate_home_page();
+config.get('test config');
