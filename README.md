@@ -2,7 +2,7 @@
 
 `maml` is a static website generator taking markdown and yaml as input.
 
-`maml` is short for **ma**rkdown ya**ml** and pronounced as `['mɑːmel]`.
+`maml` is short for "markdown yaml" and pronounced as `['mɑːmel]`.
 
 
 ## Usage
