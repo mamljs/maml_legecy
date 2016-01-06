@@ -10,3 +10,8 @@
 ```
 node index.js -i sample -o output
 ```
+
+
+## License
+
+MIT
