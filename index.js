@@ -31,6 +31,4 @@ function generate_page(link) {
 }
 
 
-generate_page('/blog/');
-generate_page('/download/');
-generate_page('/');
+file.list().forEach(page => generate_page(page));

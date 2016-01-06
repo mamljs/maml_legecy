@@ -3,6 +3,7 @@ var path = require('path');
 var mkdirp = require("mkdirp");
 var program = require('commander');
 var exec = require('child_process').exec;
+var glob = require("glob");
 
 
 program.version('0.0.1')
@@ -35,14 +36,29 @@ function write() {
     for(var i = 0; i < arguments.length - 1; i++) {
         absolute_path = path.join(absolute_path, arguments[i]);
     }
-    mkdirp(path.dirname(absolute_path), function (err) {
+    mkdirp(path.dirname(absolute_path), err => {
         fs.writeFileSync(absolute_path, content);
     });
+}
+
+
+function list() {
+    var files = glob.sync(path.join(program.input, "**/index.md"));
+    var folders = files.map(file => {
+        var folder = file.split('/').slice(1, -1).join('/');
+        if(folder == '') {
+            return '/';
+        } else {
+            return `/${folder}/`;
+        }
+    });
+    return folders;
 }
 
 
 module.exports = {
     reset: reset,
     read: read,
-    write: write
+    write: write,
+    list: list
 };
