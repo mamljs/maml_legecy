@@ -5,10 +5,8 @@ Write website in markdown. `website.md` is a static website generator which take
 
 ## notes
 
-1. Every `**/index.md` file in input directory is a web page.
-1. `index.md` has an configuration file in the same directory.
-    1. Configuration file name could be `index.yaml` or `index.yml` or `index.json`.
-    1. Configuration file could be in either yaml format or json format.
+1. Every `index.md` file in input directory is a web page.
+1. Every `index.md` has an accompany `index.yml` as configuration file.
 1. configuration files inheirt configuration files in its ancestor directories.
 1. There is n special directories:
     - `templates/` contains page templates.
@@ -37,8 +35,8 @@ Compile: `node index.js -i sample -o output`
 
 1. 每一个配置项，具体什么含义，最终解释权还得看template是如何写的。
 1. 菜单和子页面，得靠配置文件配置，否则不会出现在页面上。 不排除用户创建了页面，但是并不想给它创建链接。
-1. 配置文件还要支持json格式。 貌似yaml是json的超集？ 所以parse的时候全部当作yaml就可以了。
-    1. 支持的文件后缀: .yaml, .yml, .json
+1. 改名为 maml markdown + yaml, 中文名 马猫儿
+    1. 全局配置文件 maml.yml, 配置输入和输出目录
 
 
 ## todo

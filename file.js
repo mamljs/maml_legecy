@@ -13,8 +13,8 @@ program.version('0.0.1')
 
 
 function reset() {
-    exec('rm -rf ' + program.output + '/*', function(error, stdout, stderr) {
-        exec('cp -r node_modules/markdown-core/dist ' + path.join(program.output, 'dist'), function(error, stdout, stderr) {
+    exec('rm -rf ' + program.output + '/*', (error, stdout, stderr) => {
+        exec('cp -r node_modules/markdown-core/dist ' + path.join(program.output, 'dist'), (error, stdout, stderr) => {
             exec('rm ' + path.join(program.output, 'dist/markdown-core.min.js'));
         });
     });
@@ -42,6 +42,7 @@ function write() {
 }
 
 
+// list all the folders which contain `index.md`
 function list() {
     var files = glob.sync(path.join(program.input, "**/index.md"));
     var folders = files.map(file => {
