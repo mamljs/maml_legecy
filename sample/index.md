@@ -1,8 +1,3 @@
-# `website.md`
-
-Write website in markdown. `website.md` is a static website generator which takes markdown files as input.
-
-
 ## notes
 
 1. Every `index.md` file in input directory is a web page.
@@ -37,6 +32,8 @@ Compile: `node index.js -i sample -o output`
 1. 菜单和子页面，得靠配置文件配置，否则不会出现在页面上。 不排除用户创建了页面，但是并不想给它创建链接。
 1. 改名为 maml markdown + yaml, 中文名 马猫儿
     1. 全局配置文件 maml.yml, 配置输入和输出目录
+1. 是否 每个 index.md 再搭配一个 template.html 文件？
+1. 要能够添加可执行文件到系统bin目录
 
 
 ## todo

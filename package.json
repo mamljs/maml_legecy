@@ -1,10 +1,11 @@
 {
-  "name": "website.md",
+  "name": "maml",
   "version": "0.0.1",
-  "description": "Create website with markdown",
+  "description": "Static website generator taking markdown and yaml as input",
   "main": "index.js",
   "keywords": [
     "markdown",
+    "yaml",
     "website"
   ],
   "author": "Tyler Long",

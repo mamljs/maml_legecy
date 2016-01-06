@@ -1,4 +1,4 @@
-brand: website.md
+brand: maml
 title: Welcome
-title_suffix: " | Sample Website for website.md"
+title_suffix: " | maml static website generator"
 menu: [ /download/, /blog/ ]
