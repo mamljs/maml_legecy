@@ -20,7 +20,7 @@ function generate_page(link) {
         title: config.title + config.title_suffix,
         brand: config.brand,
         navbar: config.menu.reduce(function(result, _link){
-                if(link == _link) {
+                if(link == _link) { // todo: change to starts with
                     return result +  '<li class="active"><a href="' + _link + '">' + configuration.get(_link).name + '</a></li>';
                 } else {
                     return result +  '<li><a href="' + _link + '">' + configuration.get(_link).name + '</a></li>';
