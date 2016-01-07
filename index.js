@@ -4,7 +4,7 @@ var configuration = require('./configuration');
 var file = require('./file');
 
 
-nunjucks.configure('sample/templates', { autoescape: false });
+nunjucks.configure('templates', { autoescape: false });
 
 
 // clear the old output and re-copy assets
