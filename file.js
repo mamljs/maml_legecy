@@ -1,32 +1,19 @@
 var fs = require('fs');
 var path = require('path');
 var mkdirp = require("mkdirp");
-// var program = require('commander');
 var exec = require('child_process').exec;
 var glob = require("glob");
 
 
-// program.version('0.0.1')
-//     .option('-i, --input [path]', 'Path to the input directory')
-//     .option('-o, --output [path]', 'Path to the output directory')
-//     .parse(process.argv);
-
-
-var program = {
-    input: 'content',
-    output: 'site'
-};
-
-
 function reset() {
-    exec('rm -rf ' + program.output + '/*', (error, stdout, stderr) => {
-        exec('cp -r layout/maml ' + path.join(program.output, 'maml'));
+    exec('rm -rf ' + global.maml.output + '/*', (error, stdout, stderr) => {
+        exec('cp -r ' + global.maml.layout + '/maml ' + path.join(global.maml.output, 'maml'));
     });
 }
 
 
 function read() {
-    var absolute_path = program.input;
+    var absolute_path = global.maml.input;
     for(var i = 0; i < arguments.length; i++) {
         absolute_path = path.join(absolute_path, arguments[i]);
     }
@@ -36,7 +23,7 @@ function read() {
 
 function write() {
     var content = arguments[arguments.length - 1];
-    var absolute_path = program.output;
+    var absolute_path = global.maml.output;
     for(var i = 0; i < arguments.length - 1; i++) {
         absolute_path = path.join(absolute_path, arguments[i]);
     }
@@ -48,7 +35,7 @@ function write() {
 
 // list all the folders which contain `index.md`
 function list() {
-    var files = glob.sync(path.join(program.input, "**/index.md"));
+    var files = glob.sync(path.join(global.maml.input, "**/index.md"));
     var folders = files.map(file => {
         var folder = file.split('/').slice(1, -1).join('/');
         if(folder == '') {
