@@ -16,7 +16,7 @@
     "js-yaml": "^3.4.6",
     "markdown-core": "git+https://github.com/tylingsoft/markdown-core.git",
     "mkdirp": "^0.5.1",
-    "mustache": "^2.2.1",
+    "nunjucks": "^2.3.0",
     "underscore": "^1.8.3"
   }
 }

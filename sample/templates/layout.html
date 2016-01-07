@@ -23,13 +23,13 @@
       </div>
       <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="nav navbar-nav">
-          {{{ navbar }}}
+          {{ navbar | safe }}
         </ul>
       </div>
     </div>
   </nav>
   <article class="markdown-body">
-    {{{ content }}}
+    {{ content | safe }}
   </article>
 </body>
 </html>

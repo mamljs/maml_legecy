@@ -5,7 +5,7 @@
 1. configuration files inheirt configuration files in its ancestor directories.
 1. There is n special directories:
     - `templates/` contains page templates.
-       - templates are based on [mustache](https://github.com/janl/mustache.js).
+       - templates are based on [nunjucks](https://github.com/mozilla/nunjucks).
 1. configuration fields:
     1. `brand`: website name.
     1. `name`: page link text. example: `<a href="/link/">name</a>`

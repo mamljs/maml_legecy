@@ -1,4 +1,4 @@
-var mustache = require('mustache');
+var nunjucks = require('nunjucks');
 var mdc = require('markdown-core/markdown-core-node');
 var configuration = require('./configuration');
 var file = require('./file');
@@ -15,7 +15,7 @@ function generate_html(link) {
     var config = configuration.get(link);
     var markdown = file.read(link, 'index.md');
     var html = mdc.render(markdown);
-    html = mustache.render(layout, {
+    html = nunjucks.render('sample/templates/layout.html', {
         content: html,
         title: config.title + config.title_suffix,
         brand: config.brand,
