@@ -1,9 +1,9 @@
+var fs = require('fs');
+var yaml = require('js-yaml');
 var nunjucks = require('nunjucks');
 var mdc = require('markdown-core/markdown-core-node');
 var configuration = require('./configuration');
 var file = require('./file');
-var fs = require('fs');
-var yaml = require('js-yaml');
 
 
 global.maml = yaml.safeLoad(fs.readFileSync('maml.yml', 'utf8'));
