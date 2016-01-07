@@ -14,9 +14,7 @@ program.version('0.0.1')
 
 function reset() {
     exec('rm -rf ' + program.output + '/*', (error, stdout, stderr) => {
-        exec('cp -r ~/src/js/maml/node_modules/markdown-core/dist ' + path.join(program.output, 'dist'), (error, stdout, stderr) => {
-            exec('rm ' + path.join(program.output, 'dist/markdown-core.min.js'));
-        });
+        exec('cp -r templates/maml ' + path.join(program.output, 'maml'));
     });
 }
 
