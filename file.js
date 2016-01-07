@@ -13,14 +13,8 @@ program.version('0.0.1')
 
 
 function reset() {
-    console.log('111');
-    console.log('rm -rf ' + program.output + '/*');
     exec('rm -rf ' + program.output + '/*', (error, stdout, stderr) => {
-        console.log('222');
-        console.log('cp -r node_modules/markdown-core/dist ' + path.join(program.output, 'dist'));
         exec('cp -r ~/src/js/maml/node_modules/markdown-core/dist ' + path.join(program.output, 'dist'), (error, stdout, stderr) => {
-            console.log('333');
-            console.log('rm ' + path.join(program.output, 'dist/markdown-core.min.js'));
             exec('rm ' + path.join(program.output, 'dist/markdown-core.min.js'));
         });
     });
