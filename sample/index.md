@@ -32,8 +32,11 @@ Compile: `node index.js -i sample -o output`
 1. 菜单和子页面，得靠配置文件配置，否则不会出现在页面上。 不排除用户创建了页面，但是并不想给它创建链接。
 1. 改名为 maml markdown + yaml, 中文名 马猫儿
     1. 全局配置文件 maml.yml, 配置输入和输出目录
+        1. content, templates, output
 1. 是否 每个 index.md 再搭配一个 template.html 文件？
 1. 要能够添加可执行文件到系统bin目录
+1. js, css, image 这些放到什么地方？
+    1. 跟 index.md 当到同一个目录
 
 
 ## todo
