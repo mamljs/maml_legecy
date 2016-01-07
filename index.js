@@ -4,7 +4,7 @@ var configuration = require('./configuration');
 var file = require('./file');
 
 
-var layout = file.read('templates/layout.html');
+nunjucks.configure('sample/templates', { autoescape: false });
 
 
 // clear the old output and re-copy assets
@@ -15,7 +15,7 @@ function generate_html(link) {
     var config = configuration.get(link);
     var markdown = file.read(link, 'index.md');
     var html = mdc.render(markdown);
-    html = nunjucks.render('sample/templates/layout.html', {
+    html = nunjucks.render('layout.html', {
         content: html,
         title: config.title + config.title_suffix,
         brand: config.brand,
