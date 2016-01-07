@@ -1,15 +1,21 @@
 var fs = require('fs');
 var path = require('path');
 var mkdirp = require("mkdirp");
-var program = require('commander');
+// var program = require('commander');
 var exec = require('child_process').exec;
 var glob = require("glob");
 
 
-program.version('0.0.1')
-    .option('-i, --input [path]', 'Path to the input directory')
-    .option('-o, --output [path]', 'Path to the output directory')
-    .parse(process.argv);
+// program.version('0.0.1')
+//     .option('-i, --input [path]', 'Path to the input directory')
+//     .option('-o, --output [path]', 'Path to the output directory')
+//     .parse(process.argv);
+
+
+var program = {
+    input: 'content',
+    output: 'output'
+};
 
 
 function reset() {
