@@ -8,7 +8,8 @@
 ## Usage
 
 ```
-node index.js -i sample -o output
+node maml.js new mysite && cd mysite
+node maml.js build
 ```
 
 

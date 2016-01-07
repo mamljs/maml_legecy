@@ -14,13 +14,13 @@ var glob = require("glob");
 
 var program = {
     input: 'content',
-    output: 'output'
+    output: 'site'
 };
 
 
 function reset() {
     exec('rm -rf ' + program.output + '/*', (error, stdout, stderr) => {
-        exec('cp -r templates/maml ' + path.join(program.output, 'maml'));
+        exec('cp -r layout/maml ' + path.join(program.output, 'maml'));
     });
 }
 
