@@ -4,6 +4,8 @@
 
 `maml` is short for "markdown yaml" and pronounced as `['mɑːmel]`.
 
+Chinese name is `马猫儿`.
+
 
 ## Quick start
 

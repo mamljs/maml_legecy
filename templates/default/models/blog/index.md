@@ -1,3 +1,3 @@
 # blog
 
-- my first blog entry
+A blog entry.
