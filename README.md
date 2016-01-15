@@ -21,6 +21,8 @@ Commands above creates a website named `mysite`, and build output into `mysite/d
 
 ```shell
 maml help
+maml help init
+maml help build
 ```
 
 

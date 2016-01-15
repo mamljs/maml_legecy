@@ -13,10 +13,7 @@ var template = program.template || 'default';
 
 
 // copy initial content to the new website
-exec(`
-  cp -r ${__dirname}/templates/${template}/models ./
-  cp -r ${__dirname}/templates/${template}/views ./
-`, (err) => {
+exec(`cp -r ${__dirname}/templates/${template}/* .`, (err) => {
   if(err != null) {
     console.log(err);
   }
