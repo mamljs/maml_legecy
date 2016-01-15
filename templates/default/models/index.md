@@ -2,23 +2,15 @@
 
 1. Every `index.md` file in input directory is a web page.
 1. Every `index.md` has an accompany `index.yml` as configuration file.
-1. configuration files inheirt configuration files in its ancestor directories.
-1. There is n special directories:
-    - `templates/` contains page templates.
-       - templates are based on [nunjucks](https://github.com/mozilla/nunjucks).
-1. configuration fields:
-    1. `brand`: website name.
-    1. `name`: page link text. example: `<a href="/link/">name</a>`
-    1. `title` page title. example: `<head><title>title | title_suffix</title></head>`
-    1. `title_suffix` page title suffix. example: `<head><title>title | title_suffix</title></head>`
-1. page could be hidden, which means won't appear in menu
+1. `index.yml` inheirts and overrides `index.yml` in ancestor directories.
+1. Views' template engine is [nunjucks](https://github.com/mozilla/nunjucks).
 
 
-## usage
+## three directories
 
-Show help: `node index.js -h`
-
-Compile: `node index.js -i sample -o output`
+1. model
+1. view
+1. site
 
 
 ## sample website

@@ -14,7 +14,7 @@ maml init
 maml build
 ```
 
-Commands above creates a website named `mysite`, and build output into `mysite/site/`.
+Commands above creates a website named `mysite`, and build output into `mysite/dist/`.
 
 
 ## Show help

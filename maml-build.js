@@ -1,11 +1,22 @@
+var program = require('commander');
 var nunjucks = require('nunjucks');
 var mdc = require('markdown-core/markdown-core-node');
 var configuration = require('./configuration');
 var file = require('./file');
 
 
+program
+  .version('1.0.0')
+  .option('-o, --output <output>', 'specify output directory')
+  .parse(process.argv);
+
+
+// default output directory is 'dist'
+global.output = program.output || 'dist';
+
+
 // set template engine defaults
-nunjucks.configure(global.maml.layout, { autoescape: false });
+nunjucks.configure('views', { autoescape: false });
 
 
 // clean output

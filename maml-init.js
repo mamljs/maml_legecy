@@ -14,9 +14,8 @@ var template = program.template || 'default';
 
 // copy initial content to the new website
 exec(`
-  cp ${__dirname}/templates/maml.yml ./
-  cp -r ${__dirname}/templates/${template}/layout ./
-  cp -r ${__dirname}/templates/${template}/content ./
+  cp -r ${__dirname}/templates/${template}/models ./
+  cp -r ${__dirname}/templates/${template}/views ./
 `, (err) => {
   if(err != null) {
     console.log(err);

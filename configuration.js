@@ -1,11 +1,6 @@
-var fs = require('fs');
 var yaml = require('js-yaml');
 var _ = require('underscore');
 var file = require('./file');
-
-
-// root configuration
-global.maml = yaml.safeLoad(fs.readFileSync('maml.yml', 'utf8'));
 
 
 var config = {
