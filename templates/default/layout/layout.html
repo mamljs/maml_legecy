@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ title }}</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/tylingsoft/markdown-core/0.4.6/dist/markdown-core.min.css">
+  <script src="https://cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-items" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">{{ brand }}</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-items">
+        <ul class="nav navbar-nav">
+          {{ navbar }}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <article class="markdown-body">
+    {{ content }}
+  </article>
+</body>
+</html>

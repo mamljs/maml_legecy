@@ -13,8 +13,8 @@ global.maml = yaml.safeLoad(fs.readFileSync('maml.yml', 'utf8'));
 nunjucks.configure(global.maml.layout, { autoescape: false });
 
 
-// clear the old output and re-copy assets
-file.reset();
+// clean output
+file.clean();
 
 
 function generate_html(link) {
@@ -39,3 +39,6 @@ function generate_html(link) {
 
 // generate html for every index.md
 file.list().forEach(page => generate_html(page));
+
+
+console.log(`Website generated`);

@@ -5,10 +5,8 @@ var exec = require('child_process').exec;
 var glob = require("glob");
 
 
-function reset() {
-    exec('rm -rf ' + global.maml.output + '/*', (error, stdout, stderr) => {
-        exec('cp -r ' + global.maml.layout + '/maml ' + path.join(global.maml.output, 'maml'));
-    });
+function clean() {
+    exec('rm -rf ' + global.maml.output + '/*');
 }
 
 
@@ -49,7 +47,7 @@ function list() {
 
 
 module.exports = {
-    reset: reset,
+    clean: clean,
     read: read,
     write: write,
     list: list
