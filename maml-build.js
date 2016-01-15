@@ -6,10 +6,12 @@ var configuration = require('./configuration');
 var file = require('./file');
 
 
+// load global maml configuration
 global.maml = yaml.safeLoad(fs.readFileSync('maml.yml', 'utf8'));
 // todo: apply default maml configuration if null
 
 
+// set template engine defaults
 nunjucks.configure(global.maml.layout, { autoescape: false });
 
 
@@ -17,28 +19,31 @@ nunjucks.configure(global.maml.layout, { autoescape: false });
 file.clean();
 
 
-function generate_html(link) {
-    var config = configuration.get(link);
-    var markdown = file.read(link, 'index.md');
-    var html = mdc.render(markdown);
-    html = nunjucks.render(config['layout'], {
-        content: html,
-        title: config.title + config.title_suffix,
-        brand: config.brand,
-        navbar: config.menu.reduce((result, _link) => {
-                if(link.startsWith(_link)) {
-                    return result +  '<li class="active"><a href="' + _link + '">' + configuration.get(_link).name + '</a></li>';
-                } else {
-                    return result +  '<li><a href="' + _link + '">' + configuration.get(_link).name + '</a></li>';
-                }
-            }, '')
-    });
-    file.write(link, 'index.html', html);
-}
+// read all configurations files
+var configs = {};
+file.list().forEach(pathname => {
+  configs[pathname] = configuration.get(pathname);
+});
 
 
 // generate html for every index.md
-file.list().forEach(page => generate_html(page));
+file.list().forEach(pathname => generate_html(pathname));
+
+
+// generate html page for a pathname
+function generate_html(pathname) {
+  var config = configs[pathname];
+  var markdown = file.read(pathname, 'index.md');
+  var html = mdc.render(markdown);
+  html = nunjucks.render(config['layout'], {
+    pathname: pathname,
+    config: config,
+    markdown: markdown,
+    html: html,
+    configs: configs,
+  });
+  file.write(pathname, 'index.html', html);
+}
 
 
 console.log(`Website generated`);

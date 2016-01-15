@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{{ title }}</title>
+  <title>{{ config.title }}{{ config.title_suffix }}</title>
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.rawgit.com/tylingsoft/markdown-core/0.4.6/dist/markdown-core.min.css">
@@ -19,17 +19,23 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">{{ brand }}</a>
+        <a class="navbar-brand" href="/">{{ config.brand }}</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="nav navbar-nav">
-          {{ navbar }}
+          {% for navbar_item in config.navbar_items %}
+            {% if pathname.startsWith(navbar_item) %}
+              <li class="active"><a href="{{ navbar_item }}">{{ configs[navbar_item].name }}</a></li>
+            {% else %}
+              <li><a href="{{ navbar_item }}">{{ configs[navbar_item].name }}</a></li>
+            {% endif %}
+          {% endfor %}
         </ul>
       </div>
     </div>
   </nav>
   <article class="markdown-body">
-    {{ content }}
+    {{ html }}
   </article>
 </body>
 </html>
