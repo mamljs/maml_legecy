@@ -1,8 +1,8 @@
 {
   "name": "maml",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Static website generator taking markdown and yaml as input",
-  "main": "maml.js",
+  "preferGlobal": true,
   "keywords": [
     "markdown",
     "yaml",
@@ -18,5 +18,8 @@
     "mkdirp": "^0.5.1",
     "nunjucks": "^2.3.0",
     "underscore": "^1.8.3"
+  },
+  "bin": {
+    "maml": "maml.js"
   }
 }

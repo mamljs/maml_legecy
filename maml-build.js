@@ -6,7 +6,7 @@ var file = require('./file');
 
 
 program
-  .version('1.0.0')
+  .version(require('./package.json').version)
   .option('-o, --output <output>', 'specify output directory')
   .parse(process.argv);
 

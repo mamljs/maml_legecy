@@ -3,7 +3,7 @@ var exec = require('child_process').exec;
 
 
 program
-  .version('1.0.0')
+  .version(require('./package.json').version)
   .option('-t, --template <template>', 'specify website template')
   .parse(process.argv);
 
