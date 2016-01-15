@@ -1,4 +1,4 @@
-layout: layout.html
+view: default.html
 brand: maml
 title: Welcome
 title_suffix: " | maml static website generator"

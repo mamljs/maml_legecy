@@ -24,4 +24,4 @@ exec(`
 });
 
 
-console.log(`Website initialized`);
+console.log('Website initialized');

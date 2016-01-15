@@ -1,8 +1,8 @@
 var fs = require('fs');
 var path = require('path');
-var mkdirp = require("mkdirp");
+var mkdirp = require('mkdirp');
 var exec = require('child_process').exec;
-var glob = require("glob");
+var glob = require('glob');
 
 
 // remove output folder
@@ -36,7 +36,7 @@ function write() {
 
 // list all the folders which contain `index.md`
 function list() {
-    var files = glob.sync(path.join(global.maml.input, "**/index.md"));
+    var files = glob.sync(path.join(global.maml.input, '**/index.md'));
     var folders = files.map(file => {
         var folder = file.split('/').slice(1, -1).join('/');
         if(folder == '') {

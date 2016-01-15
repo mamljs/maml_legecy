@@ -28,7 +28,7 @@ function generate_html(pathname) {
   var config = configs[pathname];
   var markdown = file.read(pathname, 'index.md');
   var html = mdc.render(markdown);
-  html = nunjucks.render(config['layout'], {
+  html = nunjucks.render(config.view, {
     configs: configs,
     pathname: pathname,
     config: config,
@@ -39,4 +39,4 @@ function generate_html(pathname) {
 }
 
 
-console.log(`Website built`);
+console.log('Website built');
