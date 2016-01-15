@@ -1,8 +1,8 @@
 {
   "name": "maml",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Static website generator taking markdown and yaml as input",
-  "main": "index.js",
+  "main": "maml.js",
   "keywords": [
     "markdown",
     "yaml",

@@ -1,22 +1,22 @@
 var program = require('commander');
-var path = require('path');
 var exec = require('child_process').exec;
 
 
 program
   .version('1.0.0')
-  .option('-t, --template <template>', 'website template')
+  .option('-t, --template <template>', 'specify website template')
   .parse(process.argv);
 
 
+// default template is 'default'
 var template = program.template || 'default';
 
 
-var current_path = path.resolve('.'); // current directory
+// copy initial content to the new website
 exec(`
-  cp ${__dirname}/templates/maml.yml ${current_path}/
-  cp -r ${__dirname}/templates/${template}/layout ${current_path}/
-  cp -r ${__dirname}/templates/${template}/content ${current_path}/
+  cp ${__dirname}/templates/maml.yml ./
+  cp -r ${__dirname}/templates/${template}/layout ./
+  cp -r ${__dirname}/templates/${template}/content ./
 `, (err) => {
   if(err != null) {
     console.log(err);
@@ -24,4 +24,4 @@ exec(`
 });
 
 
-console.log(`Website initialized at ${current_path}`);
+console.log(`Website initialized`);

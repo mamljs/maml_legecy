@@ -1,14 +1,7 @@
-var fs = require('fs');
-var yaml = require('js-yaml');
 var nunjucks = require('nunjucks');
 var mdc = require('markdown-core/markdown-core-node');
 var configuration = require('./configuration');
 var file = require('./file');
-
-
-// load global maml configuration
-global.maml = yaml.safeLoad(fs.readFileSync('maml.yml', 'utf8'));
-// todo: apply default maml configuration if null
 
 
 // set template engine defaults
@@ -36,14 +29,14 @@ function generate_html(pathname) {
   var markdown = file.read(pathname, 'index.md');
   var html = mdc.render(markdown);
   html = nunjucks.render(config['layout'], {
+    configs: configs,
     pathname: pathname,
     config: config,
     markdown: markdown,
     html: html,
-    configs: configs,
   });
   file.write(pathname, 'index.html', html);
 }
 
 
-console.log(`Website generated`);
+console.log(`Website built`);

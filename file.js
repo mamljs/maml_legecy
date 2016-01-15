@@ -5,11 +5,13 @@ var exec = require('child_process').exec;
 var glob = require("glob");
 
 
+// remove output folder
 function clean() {
-    exec('rm -rf ' + global.maml.output + '/*');
+    exec(`rm -rf ${global.maml.output}`);
 }
 
 
+// you can specify the input file path as multiple tokens
 function read() {
     var absolute_path = global.maml.input;
     for(var i = 0; i < arguments.length; i++) {
@@ -19,6 +21,7 @@ function read() {
 }
 
 
+// you can specify the output file path as multiple tokens
 function write() {
     var content = arguments[arguments.length - 1];
     var absolute_path = global.maml.output;

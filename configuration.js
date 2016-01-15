@@ -1,7 +1,11 @@
-var path = require('path');
-var _ = require('underscore');
+var fs = require('fs');
 var yaml = require('js-yaml');
+var _ = require('underscore');
 var file = require('./file');
+
+
+// root configuration
+global.maml = yaml.safeLoad(fs.readFileSync('maml.yml', 'utf8'));
 
 
 var config = {
@@ -21,7 +25,7 @@ function get(url) {
     } else {
         var parent = get(url.split('/').slice(0, -1).join('/')); // recursion
         parent = JSON.parse(JSON.stringify(parent)); // deep clone, don't want to change the original
-        var result = _.assign(parent, yaml.safeLoad(file.read(path.join(url, 'index.yml'))));
+        var result = _.assign(parent, yaml.safeLoad(file.read(url, 'index.yml')));
     }
     config.cache[url] = result;
     return result;

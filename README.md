@@ -5,11 +5,22 @@
 `maml` is short for "markdown yaml" and pronounced as `['mɑːmel]`.
 
 
-## Usage
+## Quick start
 
+```shell
+mkdir mysite
+cd mysite
+maml init
+maml build
 ```
-node maml.js new mysite && cd mysite
-node maml.js build
+
+Commands above creates a website named `mysite`, and build output into `mysite/site/`.
+
+
+## Show help
+
+```shell
+maml help
 ```
 
 
