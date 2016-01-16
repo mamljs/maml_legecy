@@ -10,6 +10,6 @@ function index(g, pathname, markdown) {
 }
 
 
-module.exports = { 
+module.exports = {
   index: index,
 };
