@@ -27,9 +27,9 @@
         <ul class="nav navbar-nav">
           {% for navbar_item in navbar_items %}
             {% if pathname.startsWith(navbar_item) %}
-              <li class="active"><a href="{{ navbar_item }}">{{ config[navbar_item].name }}</a></li>
+              <li class="active"><a href="{{ navbar_item }}">{{ g.config[navbar_item].name }}</a></li>
             {% else %}
-              <li><a href="{{ navbar_item }}">{{ config[navbar_item].name }}</a></li>
+              <li><a href="{{ navbar_item }}">{{ g.config[navbar_item].name }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>

@@ -12,8 +12,11 @@ program
   .parse(process.argv);
 
 
+var g = global;
+
+
 // default output directory is 'dist'
-global.output = program.output || 'dist';
+g.output = program.output || 'dist';
 
 
 // set template engine defaults
@@ -26,9 +29,9 @@ file.copyAssets();
 
 
 // read all configurations files
-global.config = {};
+g.config = {};
 file.list().forEach(pathname => {
-  global.config[pathname] = configuration.get(pathname);
+  g.config[pathname] = configuration.get(pathname);
 });
 
 
@@ -38,14 +41,14 @@ file.list().forEach(pathname => generate_html(pathname));
 
 // generate html page for a pathname
 function generate_html(pathname) {
-  var current_config = global.config[pathname];
+  var config = g.config[pathname];
   var markdown = file.read(pathname, 'index.md');
   var html = mdc.render(markdown);
-  html = nunjucks.render(current_config.view, R.merge({
-    config: global.config,
+  html = nunjucks.render(`${config.view}.html`, R.merge({
+    g: g,
     pathname: pathname,
     html: html,
-  }, current_config));
+  }, config));
   file.write(pathname, 'index.html', html);
 }
 

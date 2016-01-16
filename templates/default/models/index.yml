@@ -1,4 +1,6 @@
-view: default.html
+view: index
+controller: index
+action: index
 brand: maml
 title: Welcome
 title_suffix: " | maml static website generator"
