@@ -25,9 +25,9 @@ file.copyAssets();
 
 
 // read all configurations files
-var configs = {};
+global.configs = {};
 file.list().forEach(pathname => {
-  configs[pathname] = configuration.get(pathname);
+  global.configs[pathname] = configuration.get(pathname);
 });
 
 
@@ -37,11 +37,11 @@ file.list().forEach(pathname => generate_html(pathname));
 
 // generate html page for a pathname
 function generate_html(pathname) {
-  var config = configs[pathname];
+  var config = global.configs[pathname];
   var markdown = file.read(pathname, 'index.md');
   var html = mdc.render(markdown);
   html = nunjucks.render(config.view, {
-    configs: configs,
+    configs: global.configs,
     pathname: pathname,
     config: config,
     markdown: markdown,

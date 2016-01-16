@@ -7,6 +7,6 @@ mermaid.ganttConfig = {
 };
 
 
-$(function() { // todo: options use max width
+$(function() {
   mermaid.init(undefined, $('article.markdown-body .mermaid'));
 });
