@@ -1,3 +1,4 @@
+var R = require('ramda');
 var program = require('commander');
 var nunjucks = require('nunjucks');
 var mdc = require('markdown-core/markdown-core-node');
@@ -25,9 +26,9 @@ file.copyAssets();
 
 
 // read all configurations files
-global.configs = {};
+global.config = {};
 file.list().forEach(pathname => {
-  global.configs[pathname] = configuration.get(pathname);
+  global.config[pathname] = configuration.get(pathname);
 });
 
 
@@ -37,16 +38,14 @@ file.list().forEach(pathname => generate_html(pathname));
 
 // generate html page for a pathname
 function generate_html(pathname) {
-  var config = global.configs[pathname];
+  var current_config = global.config[pathname];
   var markdown = file.read(pathname, 'index.md');
   var html = mdc.render(markdown);
-  html = nunjucks.render(config.view, {
-    configs: global.configs,
+  html = nunjucks.render(current_config.view, R.merge({
+    config: global.config,
     pathname: pathname,
-    config: config,
-    markdown: markdown,
     html: html,
-  });
+  }, current_config));
   file.write(pathname, 'index.html', html);
 }
 
