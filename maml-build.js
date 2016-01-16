@@ -2,7 +2,6 @@ var R = require('ramda');
 var program = require('commander');
 var nunjucks = require('nunjucks');
 var path = require('path');
-var mdc = require('markdown-core/markdown-core-node');
 var configuration = require('./configuration');
 var file = require('./file');
 
@@ -14,7 +13,6 @@ program
 
 
 var g = global;
-g.mdc = mdc;
 // default output directory is 'dist'
 g.output = program.output || 'dist';
 // read all configurations files

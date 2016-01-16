@@ -1,5 +1,8 @@
+var mdc = require('markdown-core/markdown-core-node');
+
+
 function index(g, pathname, markdown) {
-  var html = g.mdc.render(markdown);
+  var html = mdc.render(markdown);
   return [
     {
       pathname: pathname,
