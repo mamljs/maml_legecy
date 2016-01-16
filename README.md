@@ -7,6 +7,13 @@
 Chinese name is `马猫儿`.
 
 
+## Installation
+
+```shell
+npm install -g maml
+```
+
+
 ## Quick start
 
 ```shell
