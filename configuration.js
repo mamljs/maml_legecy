@@ -1,3 +1,4 @@
+var R = require('ramda');
 var yaml = require('js-yaml');
 var file = require('./file');
 
@@ -14,12 +15,12 @@ function get(url) {
   if(config.cache[url]) {
     return config.cache[url];
   }
+  var result = {};
   if(url == '') {
-    var result = yaml.safeLoad(file.read('index.yml'));
+    result = yaml.safeLoad(file.read('index.yml'));
   } else {
     var parent = get(url.split('/').slice(0, -1).join('/')); // recursion
-    parent = JSON.parse(JSON.stringify(parent)); // deep clone, don't want to change the original
-    var result = Object.assign(parent, yaml.safeLoad(file.read(url, 'index.yml')));
+    result = R.merge(parent, yaml.safeLoad(file.read(url, 'index.yml')));
   }
   config.cache[url] = result;
   return result;

@@ -16,7 +16,8 @@
     "js-yaml": "^3.4.6",
     "markdown-core": "git+https://github.com/tylingsoft/markdown-core.git",
     "mkdirp": "^0.5.1",
-    "nunjucks": "^2.3.0"
+    "nunjucks": "^2.3.0",
+    "ramda": "^0.19.1"
   },
   "bin": {
     "maml": "maml.js"
