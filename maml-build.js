@@ -19,8 +19,9 @@ global.output = program.output || 'dist';
 nunjucks.configure('views', { autoescape: false });
 
 
-// clean output
+// reset output
 file.clean();
+file.copyAssets();
 
 
 // read all configurations files

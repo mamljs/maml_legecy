@@ -5,6 +5,11 @@ var exec = require('child_process').exec;
 var glob = require('glob');
 
 
+function copyAssets() {
+    exec(`cp -r assets ${global.output}`);
+}
+
+
 // remove output folder
 function clean() {
   exec(`rm -rf ${global.output}`);
@@ -50,6 +55,7 @@ function list() {
 
 
 module.exports = {
+  copyAssets: copyAssets,
   clean: clean,
   read: read,
   write: write,
