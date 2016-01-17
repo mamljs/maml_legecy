@@ -1,3 +1,0 @@
-# blog
-
-A blog entry.
