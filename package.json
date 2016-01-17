@@ -20,5 +20,13 @@
   },
   "bin": {
     "maml": "maml.js"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mamljs/maml.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mamljs/maml/issues"
+  },
+  "homepage": "https://github.com/mamljs/maml#readme"
 }
