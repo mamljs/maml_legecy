@@ -35,18 +35,28 @@ file.copyAssets();
 file.list().forEach(pathname => dispatch(pathname));
 
 
+function Page(pathname) {
+  this.pathname = pathname;
+  this.markdown = file.read(pathname, 'index.md');
+  const config = g.config[pathname];
+  for (var attr in config) {
+    this[attr] = config[attr];
+  }
+  this.g = g;
+  this.html = 'hello world';
+  this.generate = function() {
+    const html = nunjucks.render(`${this.view}.html`, this);
+    file.write(this.pathname, 'index.html', html);
+  }
+}
+
+
 // process a pathname
 function dispatch(pathname) {
-  var markdown = file.read(pathname, 'index.md');
-  var config = g.config[pathname];
-  var controller = require(path.resolve(`./controllers/${config.controller}`));
-  var action = controller[config.action];
-  action(g, pathname, markdown).forEach((page) => {
-    var data = R.merge(config, { g: g, pathname: page.pathname, markdown: markdown });
-    data = R.merge(data, page.data);
-    var html = nunjucks.render(`${page.view}.html`, data);
-    file.write(page.pathname, 'index.html', html);
-  });
+  var page = new Page(pathname);
+  const controller = require(path.resolve(`./controllers/${page.controller}`));
+  const action = controller[page.action];
+  action(page);
 }
 
 

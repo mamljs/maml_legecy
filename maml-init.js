@@ -12,6 +12,7 @@ program
 var template = program.template || 'default';
 
 
+// todo: rewrite following code with async api
 // copy template content into current folder and run `npm install`
 exec(`wget https://github.com/mamljs/maml-template-${template}/archive/master.zip && unzip master.zip`, (err) => {
   if(err) {
