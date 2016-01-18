@@ -1,6 +1,7 @@
 var program = require('commander');
 var nunjucks = require('nunjucks');
 var path = require('path');
+var mdc = require('markdown-core/markdown-core-node');
 var configuration = require('./configuration');
 var file = require('./file');
 
@@ -38,7 +39,7 @@ function Page(pathname) {
     this[attr] = config[attr];
   }
   this.g = g;
-  this.html = 'hello world';
+  this.html = mdc.render(this.markdown);
   this.generate = function() {
     var html = nunjucks.render(`${this.view}.html`, this);
     file.write(pathname, 'index.html', html);
