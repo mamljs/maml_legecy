@@ -6,7 +6,7 @@ var glob = require('glob');
 
 
 function copyAssets() {
-    exec(`cp -r assets ${global.output}`);
+  exec(`cp -r assets ${global.output}`);
 }
 
 
