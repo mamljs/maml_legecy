@@ -25,7 +25,7 @@ exec(`wget https://github.com/mamljs/maml-template-${template}/archive/master.zi
   (err) => {
     console.log(err || 'Website initialized');
   }
-);
+).stdout.pipe(process.stdout); // real time output
 
 
 console.log(`Website initializing with template '${template}'`);
