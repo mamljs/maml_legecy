@@ -12,9 +12,9 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^2.9.0",
-    "glob": "^6.0.3",
-    "js-yaml": "^3.4.6",
-    "markdown-core": "^0.4.8",
+    "glob": "^6.0.4",
+    "js-yaml": "^3.5.2",
+    "markdown-core": "^0.4.9",
     "mkdirp": "^0.5.1",
     "nunjucks": "^2.3.0",
     "ramda": "^0.19.1"
