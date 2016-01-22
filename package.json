@@ -1,6 +1,6 @@
 {
   "name": "maml",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Static website generator taking markdown and yaml as input",
   "preferGlobal": true,
   "keywords": [
@@ -14,7 +14,6 @@
     "commander": "^2.9.0",
     "glob": "^6.0.4",
     "js-yaml": "^3.5.2",
-    "markdown-core": "^0.4.9",
     "mkdirp": "^0.5.1",
     "nunjucks": "^2.3.0",
     "ramda": "^0.19.1"
