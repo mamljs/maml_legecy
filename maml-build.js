@@ -40,7 +40,7 @@ function Page(pathname) {
   this.g = g;
   this.generate = function() {
     var html = nunjucks.render(`${this.view}.html`, this);
-    file.write(pathname, 'index.html', html);
+    file.write(this.pathname, 'index.html', html);
   }
 }
 
