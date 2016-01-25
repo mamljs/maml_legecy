@@ -25,8 +25,6 @@ file.list().forEach(pathname => {
 nunjucks.configure('views', { autoescape: false });
 
 
-// reset output
-file.clean();
 file.copyAssets();
 
 

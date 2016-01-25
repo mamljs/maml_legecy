@@ -10,12 +10,6 @@ function copyAssets() {
 }
 
 
-// remove output folder
-function clean() {
-  exec(`rm -rf ${global.output}`);
-}
-
-
 // you can specify the input file path as multiple tokens
 function read() {
   var file_path = 'models';
@@ -56,7 +50,6 @@ function list() {
 
 module.exports = {
   copyAssets: copyAssets,
-  clean: clean,
   read: read,
   write: write,
   list: list
