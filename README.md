@@ -68,5 +68,5 @@ MIT
 
 ## Websites built with maml
 
-- [Tylingsoft](https://tylingsoft.com)
+- [Tylingsoft - apps to boost your productivity](https://tylingsoft.com)
 - [maml's official website](http://mamljs.github.io/)
