@@ -37,7 +37,7 @@ npm install -g maml
 
 # Documentation
 
-[mamljs.github.io/docs/][http://mamljs.github.io/docs/]
+[mamljs.github.io/docs/](http://mamljs.github.io/docs/)
 
 
 ## Quick start
@@ -68,4 +68,5 @@ MIT
 
 ## Websites built with maml
 
+- [Tylingsoft](https://tylingsoft.com)
 - [maml's official website](http://mamljs.github.io/)
