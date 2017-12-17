@@ -9,31 +9,30 @@ program
   .option('-o, --output <output>', 'specify output directory')
   .parse(process.argv)
 
-const g = global
 // default output directory is 'dist'
-g.output = program.output || 'dist'
+const output = program.output || 'dist'
 // read all configurations files
-g.config = {}
+const configs = {}
 file.list().forEach(pathname => {
-  g.config[pathname] = configuration.get(pathname)
+  configs[pathname] = configuration.get(pathname)
 })
 
 // set template engine defaults
 nunjucks.configure('views', { autoescape: false })
 
-file.copyAssets()
+file.copyAssets(output)
 
 function Page (pathname) {
   this.pathname = pathname
   this.markdown = file.read(pathname, 'index.md')
-  const config = g.config[pathname]
+  const config = configs[pathname]
   for (const attr in config) {
     this[attr] = config[attr]
   }
-  this.g = g
+  this.configs = configs
   this.generate = function () {
     const html = nunjucks.render(`${this.view}.html`, this)
-    file.write(this.pathname, 'index.html', html)
+    file.write(output, this.pathname, 'index.html', html)
   }
 }
 

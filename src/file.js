@@ -4,8 +4,8 @@ const mkdirp = require('mkdirp')
 const exec = require('child_process').exec
 const glob = require('glob')
 
-function copyAssets () {
-  exec(`cp -r assets/* ${global.output}`)
+function copyAssets (output) {
+  exec(`cp -r assets/* ${output}`)
 }
 
 // you can specify the input file path as multiple tokens
@@ -18,11 +18,11 @@ function read () {
 }
 
 // you can specify the output file path as multiple tokens
-function write () {
-  const content = arguments[arguments.length - 1]
-  let filePath = global.output
-  for (let i = 0; i < arguments.length - 1; i++) {
-    filePath = path.join(filePath, arguments[i])
+function write (...args) {
+  const content = args[args.length - 1]
+  let filePath = '.'
+  for (let i = 0; i < args.length - 1; i++) {
+    filePath = path.join(filePath, args[i])
   }
   mkdirp(path.dirname(filePath), err => {
     if (err) {
