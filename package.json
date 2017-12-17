@@ -22,7 +22,7 @@
     "ramda": "^0.25.0"
   },
   "bin": {
-    "maml": "maml.js"
+    "maml": "src/maml.js"
   },
   "repository": {
     "type": "git",

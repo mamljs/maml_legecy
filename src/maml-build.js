@@ -5,7 +5,7 @@ const configuration = require('./configuration')
 const file = require('./file')
 
 program
-  .version(require('./package.json').version)
+  .version(require('../package.json').version)
   .option('-o, --output <output>', 'specify output directory')
   .parse(process.argv)
 

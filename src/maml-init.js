@@ -2,7 +2,7 @@ const program = require('commander')
 const exec = require('child_process').exec
 
 program
-  .version(require('./package.json').version)
+  .version(require('../package.json').version)
   .option('-t, --template <template>', 'specify website template')
   .parse(process.argv)
 
