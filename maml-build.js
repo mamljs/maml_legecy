@@ -1,15 +1,15 @@
-var program = require('commander')
-var nunjucks = require('nunjucks')
-var path = require('path')
-var configuration = require('./configuration')
-var file = require('./file')
+const program = require('commander')
+const nunjucks = require('nunjucks')
+const path = require('path')
+const configuration = require('./configuration')
+const file = require('./file')
 
 program
   .version(require('./package.json').version)
   .option('-o, --output <output>', 'specify output directory')
   .parse(process.argv)
 
-var g = global
+const g = global
 // default output directory is 'dist'
 g.output = program.output || 'dist'
 // read all configurations files
@@ -26,22 +26,22 @@ file.copyAssets()
 function Page (pathname) {
   this.pathname = pathname
   this.markdown = file.read(pathname, 'index.md')
-  var config = g.config[pathname]
-  for (var attr in config) {
+  const config = g.config[pathname]
+  for (const attr in config) {
     this[attr] = config[attr]
   }
   this.g = g
   this.generate = function () {
-    var html = nunjucks.render(`${this.view}.html`, this)
+    const html = nunjucks.render(`${this.view}.html`, this)
     file.write(this.pathname, 'index.html', html)
   }
 }
 
 // generate html for every index.md
 file.list().forEach(pathname => {
-  var page = new Page(pathname)
-  var controller = require(path.resolve(`./controllers/${page.controller}`))
-  var action = controller[page.action]
+  const page = new Page(pathname)
+  const controller = require(path.resolve(`./controllers/${page.controller}`))
+  const action = controller[page.action]
   action(page)
 })
 

@@ -1,8 +1,8 @@
-var R = require('ramda')
-var yaml = require('js-yaml')
-var file = require('./file')
+const R = require('ramda')
+const yaml = require('js-yaml')
+const file = require('./file')
 
-var config = {
+const config = {
   cache: {}
 }
 
@@ -13,11 +13,11 @@ function get (url) {
   if (config.cache[url]) {
     return config.cache[url]
   }
-  var result = {}
+  let result = {}
   if (url === '') {
     result = yaml.safeLoad(file.read('index.yml'))
   } else {
-    var parent = get(url.split('/').slice(0, -1).join('/')) // recursion
+    const parent = get(url.split('/').slice(0, -1).join('/')) // recursion
     result = R.merge(parent, yaml.safeLoad(file.read(url, 'index.yml')))
   }
   config.cache[url] = result

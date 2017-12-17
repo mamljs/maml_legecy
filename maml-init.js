@@ -1,5 +1,5 @@
-var program = require('commander')
-var exec = require('child_process').exec
+const program = require('commander')
+const exec = require('child_process').exec
 
 program
   .version(require('./package.json').version)
@@ -7,7 +7,7 @@ program
   .parse(process.argv)
 
 // default template is 'default'
-var template = program.template || 'default'
+const template = program.template || 'default'
 
 // copy template content into current folder and run `npm install`
 exec(`wget https://github.com/mamljs/maml-template-${template}/archive/master.zip
