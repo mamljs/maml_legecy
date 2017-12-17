@@ -9,10 +9,10 @@ function copyAssets (output) {
 }
 
 // you can specify the input file path as multiple tokens
-function read () {
+function read (...args) {
   let filePath = 'models'
-  for (let i = 0; i < arguments.length; i++) {
-    filePath = path.join(filePath, arguments[i])
+  for (let i = 0; i < args.length; i++) {
+    filePath = path.join(filePath, args[i])
   }
   return fs.readFileSync(filePath, 'utf8')
 }
