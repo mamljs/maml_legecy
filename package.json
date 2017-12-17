@@ -14,12 +14,12 @@
     "upgrade": "yarn-upgrade-all"
   },
   "dependencies": {
-    "commander": "^2.9.0",
-    "glob": "^6.0.4",
-    "js-yaml": "^3.5.2",
+    "commander": "^2.12.2",
+    "glob": "^7.1.2",
+    "js-yaml": "^3.10.0",
     "mkdirp": "^0.5.1",
-    "nunjucks": "^2.3.0",
-    "ramda": "^0.19.1"
+    "nunjucks": "^3.0.1",
+    "ramda": "^0.25.0"
   },
   "bin": {
     "maml": "maml.js"

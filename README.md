@@ -9,7 +9,7 @@ Chinese name is `马猫儿`.
 
 ## Features
 
-##### affected by Ruby on Rails
+##### Inspired by Ruby on Rails
 
 - The folder structure is very similar to Ruby on Rails: assets, controllers, models, views.
 - Convention over configuration.
