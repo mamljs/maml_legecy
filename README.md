@@ -31,6 +31,12 @@ Chinese name is `马猫儿`.
 ## Installation
 
 ```shell
+yarn global add maml
+```
+
+or
+
+```shell
 npm install -g maml
 ```
 

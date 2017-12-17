@@ -1,16 +1,13 @@
-var program = require('commander');
-var exec = require('child_process').exec;
-
+var program = require('commander')
+var exec = require('child_process').exec
 
 program
   .version(require('./package.json').version)
   .option('-t, --template <template>', 'specify website template')
-  .parse(process.argv);
-
+  .parse(process.argv)
 
 // default template is 'default'
-var template = program.template || 'default';
-
+var template = program.template || 'default'
 
 // copy template content into current folder and run `npm install`
 exec(`wget https://github.com/mamljs/maml-template-${template}/archive/master.zip
@@ -23,9 +20,8 @@ exec(`wget https://github.com/mamljs/maml-template-${template}/archive/master.zi
       rm -rf master.zip && rm -rf maml-template-${template}-master
       npm install`,
   (err) => {
-    console.log(err || 'Website initialized');
+    console.log(err || 'Website initialized')
   }
-).stdout.pipe(process.stdout); // real time output
+).stdout.pipe(process.stdout) // real time output
 
-
-console.log(`Website initializing with template '${template}'`);
+console.log(`Website initializing with template '${template}'`)

@@ -1,6 +1,6 @@
 {
   "name": "maml",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Static website generator taking markdown and yaml as input",
   "preferGlobal": true,
   "keywords": [
@@ -8,7 +8,7 @@
     "yaml",
     "website"
   ],
-  "author": "Tyler Long",
+  "author": "Tyler Long <tyler4long@gmail.com>",
   "license": "MIT",
   "scripts": {
     "upgrade": "yarn-upgrade-all"
