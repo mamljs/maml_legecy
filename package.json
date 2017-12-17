@@ -10,6 +10,9 @@
   ],
   "author": "Tyler Long",
   "license": "MIT",
+  "scripts": {
+    "upgrade": "yarn-upgrade-all"
+  },
   "dependencies": {
     "commander": "^2.9.0",
     "glob": "^6.0.4",
@@ -28,5 +31,9 @@
   "bugs": {
     "url": "https://github.com/mamljs/maml/issues"
   },
-  "homepage": "https://github.com/mamljs/maml#readme"
+  "homepage": "https://github.com/mamljs/maml#readme",
+  "devDependencies": {
+    "standard": "^10.0.3",
+    "yarn-upgrade-all": "^0.2.0"
+  }
 }
